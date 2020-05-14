@@ -57,6 +57,10 @@ public class CoronaActivity extends AppCompatActivity  {
 binding.btsend.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        total=0;
+        for(int i=0;i<coronaDataModels.size();i++){
+            total+=coronaDataModels.get(i).getRate();
+        }
         totals=0;
         for(int i=0;i<corona_adapter.getItemCount();i++){
 View view=binding.recView.getLayoutManager().getChildAt(i);
@@ -79,7 +83,7 @@ View view=binding.recView.getLayoutManager().getChildAt(i);
 
         DialogResultBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.dialog_result, null, false);
 
-binding.tvMsg.setText(total+"");
+binding.tvMsg.setText(total+"%");
         binding.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,9 +118,7 @@ binding.tvMsg.setText(total+"");
  
  
 
-for(int i=0;i<coronaDataModels.size();i++){
-    total+=coronaDataModels.get(i).getRate();
-}
+
         corona_adapter.notifyDataSetChanged();
 
     }
