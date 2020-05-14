@@ -57,6 +57,7 @@ public class CoronaActivity extends AppCompatActivity  {
 binding.btsend.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        totals=0;
         for(int i=0;i<corona_adapter.getItemCount();i++){
 View view=binding.recView.getLayoutManager().getChildAt(i);
             CheckBox checkBox=view.findViewById(R.id.radio);
